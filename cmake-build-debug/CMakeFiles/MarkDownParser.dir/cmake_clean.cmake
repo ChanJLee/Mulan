@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MarkDownParser.dir/main.cpp.o"
   "CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o"
-  "CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o"
+  "CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
   "MarkDownParser.pdb"
   "MarkDownParser"
 )

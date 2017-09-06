@@ -12,7 +12,7 @@ LexicalParser::LexicalParser(const Text &input)
 
 TokenStream LexicalParser::build()
 {
-	while (mCursor < mInputStream.size()) {
+	while (!eof()) {
 		fetchNextToken();
 	}
 
@@ -21,13 +21,13 @@ TokenStream LexicalParser::build()
 
 void LexicalParser::fetchNextToken()
 {
-	if (mCursor >= mInputStream.size()) {
+	if (eof()) {
 		if (mTokenStream.empty() || mTokenStream.back()->type != END)
 			mTokenStream.push_back(new Token(END));
 		return;
 	}
 
-	Char ch = mInputStream.at(mCursor);
+	Char ch = getChar();
 
 	if (ch == ' ') {
 		handleBlank();
@@ -65,32 +65,27 @@ void LexicalParser::fetchNextToken()
 	}
 
 	if (ch == '!') {
-		++mCursor;
-		mTokenStream.push_back(new Token(EXCLAMATION_MARK));
+		handleExclamationMark();
 		return;
 	}
 
 	if (ch == '[') {
-		++mCursor;
-		mTokenStream.push_back(new Token(LEFT_SQUARE_BRACKETS));
+		handleLeftSquareBrackets();
 		return;
 	}
 
 	if (ch == ']') {
-		++mCursor;
-		mTokenStream.push_back(new Token(RIGHT_SQUARE_BRACKETS));
+		handleRightSquareBrackets();
 		return;
 	}
 
 	if (ch == '(') {
-		++mCursor;
-		mTokenStream.push_back(new Token(LEFT_PARENTHESES));
+		handleLeftParentheses();
 		return;
 	}
 
 	if (ch == ')') {
-		++mCursor;
-		mTokenStream.push_back(new Token(RIGHT_PARENTHESES));
+		handleRightParentheses();
 		return;
 	}
 
@@ -193,4 +188,49 @@ inline void LexicalParser::handleReference()
 {
 	++mCursor;
 	mTokenStream.push_back(new Token(REFERENCE));
+}
+
+inline bool LexicalParser::eof()
+{
+	return mCursor >= mInputStream.size();
+}
+
+inline Char LexicalParser::getChar()
+{
+	return mInputStream.at(mCursor);
+}
+
+inline void LexicalParser::next()
+{
+	++mCursor;
+}
+
+void LexicalParser::handleExclamationMark()
+{
+	next();
+	mTokenStream.push_back(new Token(EXCLAMATION_MARK));
+}
+
+void LexicalParser::handleLeftSquareBrackets()
+{
+	next();
+	mTokenStream.push_back(new Token(LEFT_SQUARE_BRACKETS));
+}
+
+void LexicalParser::handleRightSquareBrackets()
+{
+	next();
+	mTokenStream.push_back(new Token(RIGHT_SQUARE_BRACKETS));
+}
+
+void LexicalParser::handleLeftParentheses()
+{
+	next();
+	mTokenStream.push_back(new Token(LEFT_PARENTHESES));
+}
+
+void LexicalParser::handleRightParentheses()
+{
+	next();
+	mTokenStream.push_back(new Token(RIGHT_PARENTHESES));
 }

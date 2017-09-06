@@ -16,9 +16,6 @@ typedef std::string Text;
 
 typedef size_t Position;
 
-typedef std::vector<Token *> TokenStream;
-typedef TokenStream::size_type Cursor;
-
 class Token
 {
 public:
@@ -34,5 +31,8 @@ public:
 		: type(type)
 	{}
 };
+
+typedef std::vector<Token *> TokenStream;
+typedef TokenStream::size_type Cursor;
 
 #endif //MARKDOWNPARSER_TOKEN_H

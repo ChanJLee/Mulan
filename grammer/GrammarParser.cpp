@@ -3,6 +3,7 @@
 //
 
 #include "GrammarParser.h"
+
 GrammarParser::GrammarParser(const TokenStream &mTokenStream)
 	: mTokenStream(mTokenStream)
 {}

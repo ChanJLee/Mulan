@@ -80,10 +80,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.cpp">
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp">
 			<Option target="MarkDownParser"/>
 		</Unit>
-		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.h">
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.h">
 			<Option target="MarkDownParser"/>
 		</Unit>
 		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.cpp">

@@ -105,42 +105,42 @@ CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o.provides: CMakeFiles/Ma
 CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o.provides.build: CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o
 
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o: CMakeFiles/MarkDownParser.dir/flags.make
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o: ../grammer/GrammerParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o -c /Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.cpp
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: CMakeFiles/MarkDownParser.dir/flags.make
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../grammer/GrammarParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o -c /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.i"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.cpp > CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.i
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.i"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp > CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.i
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.s"
-	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.cpp -o CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.s
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.s"
+	/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp -o CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.s
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.requires:
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.requires:
 
-.PHONY : CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.requires
+.PHONY : CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.requires
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.provides: CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.requires
-	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.provides.build
-.PHONY : CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.provides
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.provides: CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.requires
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.provides.build
+.PHONY : CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.provides
 
-CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.provides.build: CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.provides.build: CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o
 
 
 # Object files for target MarkDownParser
 MarkDownParser_OBJECTS = \
 "CMakeFiles/MarkDownParser.dir/main.cpp.o" \
 "CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o" \
-"CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o"
+"CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
 
 # External object files for target MarkDownParser
 MarkDownParser_EXTERNAL_OBJECTS =
 
 MarkDownParser: CMakeFiles/MarkDownParser.dir/main.cpp.o
 MarkDownParser: CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o
-MarkDownParser: CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o
+MarkDownParser: CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o
 MarkDownParser: CMakeFiles/MarkDownParser.dir/build.make
 MarkDownParser: CMakeFiles/MarkDownParser.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable MarkDownParser"
@@ -153,7 +153,7 @@ CMakeFiles/MarkDownParser.dir/build: MarkDownParser
 
 CMakeFiles/MarkDownParser.dir/requires: CMakeFiles/MarkDownParser.dir/main.cpp.o.requires
 CMakeFiles/MarkDownParser.dir/requires: CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o.requires
-CMakeFiles/MarkDownParser.dir/requires: CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o.requires
+CMakeFiles/MarkDownParser.dir/requires: CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o.requires
 
 .PHONY : CMakeFiles/MarkDownParser.dir/requires
 

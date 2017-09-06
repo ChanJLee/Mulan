@@ -123,32 +123,32 @@ MarkDownParser/fast:
 	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/build
 .PHONY : MarkDownParser/fast
 
-grammer/GrammerParser.o: grammer/GrammerParser.cpp.o
+grammer/GrammarParser.o: grammer/GrammarParser.cpp.o
 
-.PHONY : grammer/GrammerParser.o
+.PHONY : grammer/GrammarParser.o
 
 # target to build an object file
-grammer/GrammerParser.cpp.o:
-	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o
-.PHONY : grammer/GrammerParser.cpp.o
+grammer/GrammarParser.cpp.o:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o
+.PHONY : grammer/GrammarParser.cpp.o
 
-grammer/GrammerParser.i: grammer/GrammerParser.cpp.i
+grammer/GrammarParser.i: grammer/GrammarParser.cpp.i
 
-.PHONY : grammer/GrammerParser.i
+.PHONY : grammer/GrammarParser.i
 
 # target to preprocess a source file
-grammer/GrammerParser.cpp.i:
-	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.i
-.PHONY : grammer/GrammerParser.cpp.i
+grammer/GrammarParser.cpp.i:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.i
+.PHONY : grammer/GrammarParser.cpp.i
 
-grammer/GrammerParser.s: grammer/GrammerParser.cpp.s
+grammer/GrammarParser.s: grammer/GrammarParser.cpp.s
 
-.PHONY : grammer/GrammerParser.s
+.PHONY : grammer/GrammarParser.s
 
 # target to generate assembly for a file
-grammer/GrammerParser.cpp.s:
-	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.s
-.PHONY : grammer/GrammerParser.cpp.s
+grammer/GrammarParser.cpp.s:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.s
+.PHONY : grammer/GrammarParser.cpp.s
 
 lexica/LexicalParser.o: lexica/LexicalParser.cpp.o
 
@@ -213,9 +213,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MarkDownParser"
-	@echo "... grammer/GrammerParser.o"
-	@echo "... grammer/GrammerParser.i"
-	@echo "... grammer/GrammerParser.s"
+	@echo "... grammer/GrammarParser.o"
+	@echo "... grammer/GrammarParser.i"
+	@echo "... grammer/GrammarParser.s"
 	@echo "... lexica/LexicalParser.o"
 	@echo "... lexica/LexicalParser.i"
 	@echo "... lexica/LexicalParser.s"

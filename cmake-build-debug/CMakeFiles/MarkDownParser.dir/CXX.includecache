@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp
+GrammarParser.h
+/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.h
+
+/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.h
+../token/Token.h
+/Users/chan/ClionProjects/MarkDownParser/token/Token.h
+
 /Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.cpp
 LexicalParser.h
 /Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.h
@@ -19,10 +27,6 @@ LexicalParser.h
 /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
 ../token/Token.h
 /Users/chan/ClionProjects/MarkDownParser/token/Token.h
-vector
--
-sstream
--
 
 /Users/chan/ClionProjects/MarkDownParser/log/Logger.h
 iostream
@@ -35,17 +39,19 @@ fstream
 -
 lexica/LexicalParser.h
 /Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.h
-algorithm
+sstream
 -
 
 /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
 stddef.h
-/Users/chan/ClionProjects/MarkDownParser/symbol/stddef.h
+-
 
 /Users/chan/ClionProjects/MarkDownParser/token/Token.h
 string
 -
 stddef.h
+-
+vector
 -
 ../symbol/Symbol.h
 /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h

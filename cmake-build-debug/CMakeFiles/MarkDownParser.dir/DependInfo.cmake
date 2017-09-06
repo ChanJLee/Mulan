@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/chan/ClionProjects/MarkDownParser/grammer/GrammerParser.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/grammer/GrammerParser.cpp.o"
+  "/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
   "/Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o"
   "/Users/chan/ClionProjects/MarkDownParser/main.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/main.cpp.o"
   )

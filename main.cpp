@@ -2,7 +2,7 @@
 
 #include <fstream>
 #include "lexica/LexicalParser.h"
-#include <algorithm>
+#include <sstream>
 
 int main()
 {

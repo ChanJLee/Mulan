@@ -30,6 +30,14 @@ private:
 	void handleString();
 	void handleDot();
 	void handleReference();
+	bool eof();
+	Char getChar();
+	void next();
+	void handleExclamationMark();
+	void handleLeftSquareBrackets();
+	void handleRightSquareBrackets();
+	void handleLeftParentheses();
+	void handleRightParentheses();
 };
 
 
