@@ -104,6 +104,18 @@
 		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/nt/NormalType.h">
 			<Option target="MarkDownParser"/>
 		</Unit>
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.cpp">
+			<Option target="MarkDownParser"/>
+		</Unit>
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h">
+			<Option target="MarkDownParser"/>
+		</Unit>
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h">
+			<Option target="MarkDownParser"/>
+		</Unit>
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/Unit.h">
+			<Option target="MarkDownParser"/>
+		</Unit>
 		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h">
 			<Option target="MarkDownParser"/>
 		</Unit>

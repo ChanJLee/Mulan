@@ -22,7 +22,7 @@ typedef enum
 	RIGHT_SQUARE_BRACKETS, // ]
 	LEFT_PARENTHESES, // (
 	RIGHT_PARENTHESES, // )
-	END, //\n \r
+	NEW_LINE, //\n \r
 } SYMBOL_TYPE;
 
 

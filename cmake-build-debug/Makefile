@@ -204,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+render/HtmlRenderer.o: render/HtmlRenderer.cpp.o
+
+.PHONY : render/HtmlRenderer.o
+
+# target to build an object file
+render/HtmlRenderer.cpp.o:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o
+.PHONY : render/HtmlRenderer.cpp.o
+
+render/HtmlRenderer.i: render/HtmlRenderer.cpp.i
+
+.PHONY : render/HtmlRenderer.i
+
+# target to preprocess a source file
+render/HtmlRenderer.cpp.i:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.i
+.PHONY : render/HtmlRenderer.cpp.i
+
+render/HtmlRenderer.s: render/HtmlRenderer.cpp.s
+
+.PHONY : render/HtmlRenderer.s
+
+# target to generate assembly for a file
+render/HtmlRenderer.cpp.s:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.s
+.PHONY : render/HtmlRenderer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... render/HtmlRenderer.o"
+	@echo "... render/HtmlRenderer.i"
+	@echo "... render/HtmlRenderer.s"
 .PHONY : help
 
 

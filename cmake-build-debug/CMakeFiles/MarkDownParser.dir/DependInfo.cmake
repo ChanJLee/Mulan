@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
   "/Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o"
   "/Users/chan/ClionProjects/MarkDownParser/main.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/main.cpp.o"
+  "/Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.cpp" "/Users/chan/ClionProjects/MarkDownParser/cmake-build-debug/CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

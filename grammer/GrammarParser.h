@@ -7,13 +7,30 @@
 
 
 #include "../token/Token.h"
+#include "../render/MiddlewareRenderer.h"
+#include <vector>
+
+typedef std::vector<MiddlewareRenderer *> MiddlewareRendererContainer;
+
 class GrammarParser
 {
-	const TokenStream& mTokenStream;
+	const TokenStream &mTokenStream;
+	MiddlewareRendererContainer mRenderers;
 public:
 	GrammarParser(const TokenStream &mTokenStream);
 
+	void registerRenderer(MiddlewareRenderer *renderer);
+	void unregisterRenderer(MiddlewareRenderer *renderer);
 
+	void parse();
+
+private:
+	void handleHash(TokenStream::const_iterator &it);
+	void handleStar(TokenStream::const_iterator &it);
+	void handleString(TokenStream::const_iterator &it);
+	void handleNumber(TokenStream::const_iterator &it);
+	bool isLineFirst(TokenStream::const_iterator &it);
+	void handleNewLine();
 };
 
 

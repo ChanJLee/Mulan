@@ -22,8 +22,8 @@ TokenStream LexicalParser::build()
 void LexicalParser::fetchNextToken()
 {
 	if (eof()) {
-		if (mTokenStream.empty() || mTokenStream.back()->type != END)
-			mTokenStream.push_back(new Token(END));
+		if (mTokenStream.empty() || mTokenStream.back()->type != NEW_LINE)
+			mTokenStream.push_back(new Token(NEW_LINE));
 		return;
 	}
 
@@ -110,13 +110,13 @@ void LexicalParser::handleHash()
 
 void LexicalParser::handleBlank()
 {
-	Token *token = new Token(BLANK);
-
+	Text::size_type count = 0;
 	while (mCursor < mInputStream.size() && mInputStream.at(mCursor) == ' ') {
+		++count;
 		++mCursor;
 	}
 
-	mTokenStream.push_back(token);
+	mTokenStream.push_back(new Token(BLANK, mInputStream, mCursor - count, count));
 }
 
 void LexicalParser::handleStar()
@@ -156,7 +156,7 @@ inline void LexicalParser::handleEnd()
 {
 	//TODO windows
 	++mCursor;
-	mTokenStream.push_back(new Token(END, mInputStream, mCursor - 1, 1));
+	mTokenStream.push_back(new Token(NEW_LINE, mInputStream, mCursor - 1, 1));
 }
 
 void LexicalParser::handleString()
