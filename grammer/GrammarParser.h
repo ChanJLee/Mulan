@@ -31,6 +31,7 @@ private:
 	void handleNumber(TokenStream::const_iterator &it);
 	bool isLineFirst(TokenStream::const_iterator &it);
 	void handleNewLine();
+	bool checkToken(TokenStream::const_iterator& it, int offset, SYMBOL_TYPE type);
 };
 
 

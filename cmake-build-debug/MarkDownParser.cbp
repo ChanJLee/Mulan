@@ -113,7 +113,7 @@
 		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h">
 			<Option target="MarkDownParser"/>
 		</Unit>
-		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/Unit.h">
+		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h">
 			<Option target="MarkDownParser"/>
 		</Unit>
 		<Unit filename="/Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h">

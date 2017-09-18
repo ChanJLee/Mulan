@@ -2,7 +2,8 @@
 
 #include <fstream>
 #include "lexica/LexicalParser.h"
-#include <sstream>
+#include "grammer/GrammarParser.h"
+#include "render/HtmlRenderer.h"
 
 int main()
 {
@@ -22,6 +23,10 @@ int main()
 		std::cout << index << "\t" << token->type << "\t" << token->text << std::endl;
 		++index;
 	});
+
+	GrammarParser grammarParser(vec);
+	grammarParser.registerRenderer(new HtmlRenderer());
+	grammarParser.parse();
 
 	return 0;
 }

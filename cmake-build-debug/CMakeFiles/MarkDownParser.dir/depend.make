@@ -3,6 +3,8 @@
 
 CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../grammer/GrammarParser.cpp
 CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../grammer/GrammarParser.h
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../render/MiddlewareRenderer.h
+CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../render/RendererUnit.h
 CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../symbol/Symbol.h
 CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o: ../token/Token.h
 
@@ -13,8 +15,19 @@ CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o: ../symbol/Symbol.h
 CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o: ../token/Token.h
 CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o: ../utils/CharUtils.h
 
+CMakeFiles/MarkDownParser.dir/main.cpp.o: ../grammer/GrammarParser.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../lexica/LexicalParser.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../main.cpp
+CMakeFiles/MarkDownParser.dir/main.cpp.o: ../render/HtmlRenderer.h
+CMakeFiles/MarkDownParser.dir/main.cpp.o: ../render/MiddlewareRenderer.h
+CMakeFiles/MarkDownParser.dir/main.cpp.o: ../render/RendererUnit.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../symbol/Symbol.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../token/Token.h
+
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/HtmlRenderer.cpp
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/HtmlRenderer.h
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/MiddlewareRenderer.h
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/RendererUnit.h
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../symbol/Symbol.h
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../token/Token.h
 

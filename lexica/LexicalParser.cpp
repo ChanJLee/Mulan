@@ -22,8 +22,8 @@ TokenStream LexicalParser::build()
 void LexicalParser::fetchNextToken()
 {
 	if (eof()) {
-		if (mTokenStream.empty() || mTokenStream.back()->type != NEW_LINE)
-			mTokenStream.push_back(new Token(NEW_LINE));
+		if (mTokenStream.empty() || mTokenStream.back()->type != SYMBOL_TYPE ::NEW_LINE)
+			mTokenStream.push_back(new Token(SYMBOL_TYPE ::NEW_LINE));
 		return;
 	}
 
@@ -105,7 +105,7 @@ void LexicalParser::handleHash()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(HASH, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::HASH, mInputStream, mCursor - count, count));
 }
 
 void LexicalParser::handleBlank()
@@ -116,7 +116,7 @@ void LexicalParser::handleBlank()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(BLANK, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::BLANK, mInputStream, mCursor - count, count));
 }
 
 void LexicalParser::handleStar()
@@ -127,7 +127,7 @@ void LexicalParser::handleStar()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(STAR, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::STAR, mInputStream, mCursor - count, count));
 }
 
 void LexicalParser::handleNumber()
@@ -138,7 +138,7 @@ void LexicalParser::handleNumber()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(NUMBER, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::NUMBER, mInputStream, mCursor - count, count));
 }
 
 void LexicalParser::handleDashes()
@@ -149,14 +149,14 @@ void LexicalParser::handleDashes()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(DASHES, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::DASHES, mInputStream, mCursor - count, count));
 }
 
 inline void LexicalParser::handleEnd()
 {
 	//TODO windows
 	++mCursor;
-	mTokenStream.push_back(new Token(NEW_LINE, mInputStream, mCursor - 1, 1));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::NEW_LINE, mInputStream, mCursor - 1, 1));
 }
 
 void LexicalParser::handleString()
@@ -167,7 +167,7 @@ void LexicalParser::handleString()
 		++mCursor;
 	}
 
-	mTokenStream.push_back(new Token(STRING, mInputStream, mCursor - count, count));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::STRING, mInputStream, mCursor - count, count));
 }
 
 LexicalParser::~LexicalParser()
@@ -181,13 +181,13 @@ LexicalParser::~LexicalParser()
 inline void LexicalParser::handleDot()
 {
 	++mCursor;
-	mTokenStream.push_back(new Token(DOT));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::DOT));
 }
 
 inline void LexicalParser::handleReference()
 {
 	++mCursor;
-	mTokenStream.push_back(new Token(REFERENCE));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::REFERENCE));
 }
 
 inline bool LexicalParser::eof()
@@ -208,29 +208,29 @@ inline void LexicalParser::next()
 void LexicalParser::handleExclamationMark()
 {
 	next();
-	mTokenStream.push_back(new Token(EXCLAMATION_MARK));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::EXCLAMATION_MARK));
 }
 
 void LexicalParser::handleLeftSquareBrackets()
 {
 	next();
-	mTokenStream.push_back(new Token(LEFT_SQUARE_BRACKETS));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::LEFT_SQUARE_BRACKETS));
 }
 
 void LexicalParser::handleRightSquareBrackets()
 {
 	next();
-	mTokenStream.push_back(new Token(RIGHT_SQUARE_BRACKETS));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::RIGHT_SQUARE_BRACKETS));
 }
 
 void LexicalParser::handleLeftParentheses()
 {
 	next();
-	mTokenStream.push_back(new Token(LEFT_PARENTHESES));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::LEFT_PARENTHESES));
 }
 
 void LexicalParser::handleRightParentheses()
 {
 	next();
-	mTokenStream.push_back(new Token(RIGHT_PARENTHESES));
+	mTokenStream.push_back(new Token(SYMBOL_TYPE ::RIGHT_PARENTHESES));
 }

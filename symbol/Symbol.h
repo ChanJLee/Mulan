@@ -5,9 +5,9 @@
 #ifndef MARKDOWNPARSER_SYMBOL_H
 #define MARKDOWNPARSER_SYMBOL_H
 
-#include <stddef.h>
+#pragma once
 
-typedef enum
+enum class SYMBOL_TYPE
 {
 	BLANK,
 	HASH, // #
@@ -23,7 +23,7 @@ typedef enum
 	LEFT_PARENTHESES, // (
 	RIGHT_PARENTHESES, // )
 	NEW_LINE, //\n \r
-} SYMBOL_TYPE;
+};
 
 
 #endif //MARKDOWNPARSER_SYMBOL_H

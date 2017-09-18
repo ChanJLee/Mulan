@@ -7,16 +7,25 @@
 
 #include "../token/Token.h"
 #include "RendererUnit.h"
-virtual class MiddlewareRenderer {
+
+class MiddlewareRenderer
+{
 public:
 	virtual ~MiddlewareRenderer()
 	{
 
 	}
 
-	virtual void render(RENDERER_UNIT unit, const Text&... texture) = 0;
 	virtual void begin() = 0;
 	virtual void end() = 0;
+	virtual void renderTitle(RENDERER_UNIT unit, const Text &content) = 0;
+	virtual void renderTexture(const Text &content) = 0;
+	virtual void renderTypeface(RENDERER_UNIT unit, const Text &content) = 0;
+	virtual void renderOrderList(const Text &num, const Text &content) = 0;
+	virtual void renderNewLine() = 0;
+	virtual void renderImage(const Text &label, const Text &url) = 0;
+	virtual void renderLink(const Text &label, const Text &url) = 0;
+	virtual void renderReference(const Text &content) = 0;
 };
 
 #endif //MARKDOWNPARSER_MIDDLEWARERENDERER_H

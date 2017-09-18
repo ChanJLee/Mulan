@@ -5,7 +5,7 @@
 #ifndef MARKDOWNPARSER_UNIT_H
 #define MARKDOWNPARSER_UNIT_H
 
-typedef enum
+enum class RENDERER_UNIT
 {
 	TITLE_1, // #
 	TITLE_2,
@@ -14,14 +14,12 @@ typedef enum
 	TITLE_5,
 	BOLD,
 	ITALIC,
-	ORDER_LIST, //*
 	STRING, //a-z
 	UNORDERED_LIST, // -
 	REFERENCE, // >
 	IMAGE,
 	LINK,
 	NEW_LINE, //\n \r
-} RENDERER_UNIT;
-
+};
 
 #endif //MARKDOWNPARSER_UNIT_H

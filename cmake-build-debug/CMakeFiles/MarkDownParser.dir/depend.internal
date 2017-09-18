@@ -4,6 +4,8 @@
 CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o
  /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.cpp
  /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.h
+ /Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h
  /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
  /Users/chan/ClionProjects/MarkDownParser/token/Token.h
 CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o
@@ -14,7 +16,18 @@ CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o
  /Users/chan/ClionProjects/MarkDownParser/token/Token.h
  /Users/chan/ClionProjects/MarkDownParser/utils/CharUtils.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o
+ /Users/chan/ClionProjects/MarkDownParser/grammer/GrammarParser.h
  /Users/chan/ClionProjects/MarkDownParser/lexica/LexicalParser.h
  /Users/chan/ClionProjects/MarkDownParser/main.cpp
+ /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h
+ /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
+ /Users/chan/ClionProjects/MarkDownParser/token/Token.h
+CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o
+ /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.cpp
+ /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h
  /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
  /Users/chan/ClionProjects/MarkDownParser/token/Token.h

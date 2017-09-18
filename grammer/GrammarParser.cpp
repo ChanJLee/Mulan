@@ -3,7 +3,6 @@
 //
 
 #include "GrammarParser.h"
-#include <algorithm>
 
 GrammarParser::GrammarParser(const TokenStream &mTokenStream)
 	: mTokenStream(mTokenStream)
@@ -64,7 +63,7 @@ void GrammarParser::handleHash(TokenStream::const_iterator &it)
 	if (nextIt == mTokenStream.cend()) {
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+			renderer->renderTexture((*it)->text);
 		});
 		return;
 	}
@@ -94,58 +93,54 @@ void GrammarParser::handleHash(TokenStream::const_iterator &it)
 		it = nextIt;
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->render(unit, (*nextIt)->text);
+			renderer->renderTitle(unit, (*nextIt)->text);
 		});
 		return;
 	}
 
 	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 	{
-		renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+		renderer->renderTexture((*it)->text);
 	});
 }
 
 void GrammarParser::handleStar(TokenStream::const_iterator &it)
 {
-	TokenStream::const_iterator nextToken = it + 1;
-	if (nextToken == mTokenStream.cend()) {
+	if (!checkToken(it, 1, SYMBOL_TYPE::STRING) && !checkToken(it, 1, SYMBOL_TYPE::STAR)) {
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+			renderer->renderTexture((*it)->text);
 		});
 		return;
 	}
 
+
 	//如果下一个单词也是star 那么就当错误处理，吃掉状态
-	if ((*nextToken)->type == SYMBOL_TYPE::STAR) {
-		it = nextToken;
+	if (checkToken(it, 1, SYMBOL_TYPE::STAR)) {
+		++it;
 		return;
 	}
 
-	bool nextTokenIsString = (*nextToken)->type == SYMBOL_TYPE::STRING;
-	TokenStream::const_iterator nextNextToken = nextNextToken + 1;
-	bool nextNextTokenIsStar = nextNextToken != mTokenStream.cend() &&
-		(*nextNextToken)->type == SYMBOL_TYPE::STAR &&
-		(*nextNextToken)->text.size() == (*it)->text.size();
-
-	if (nextNextTokenIsStar && nextTokenIsString) {
+	if (checkToken(it, 1, SYMBOL_TYPE::STRING) && checkToken(it, 2, SYMBOL_TYPE::STAR)) {
 
 		RENDERER_UNIT unit = RENDERER_UNIT::BOLD;
 		if ((*it)->text.size() == 1) {
 			unit = RENDERER_UNIT::ITALIC;
 		}
 
-		it = nextNextToken;
+		TokenStream::const_iterator nextToken = it + 1;
+		it += 2;
+
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->render(unit, (*nextToken)->text);
+			renderer->renderTypeface(unit, (*nextToken)->text);
 		});
 		return;
 	}
 
 	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 	{
-		renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+		renderer->renderTexture((*it)->text);
 	});
 }
 
@@ -153,46 +148,26 @@ void GrammarParser::handleString(TokenStream::const_iterator &it)
 {
 	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 	{
-		renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+		renderer->renderTexture((*it)->text);
 	});
 }
 
 void GrammarParser::handleNumber(TokenStream::const_iterator &it)
 {
-	bool isLineFirst = isLineFirst(it);
-	TokenStream::const_iterator nextToken = it + 1;
-	if (!isLineFirst || nextToken == mTokenStream.cend() || (*nextToken)->type != SYMBOL_TYPE::DOT) {
+	bool isAtNewLine = isLineFirst(it);
+	if (!isAtNewLine || !checkToken(it, 1, SYMBOL_TYPE::DOT) || !checkToken(it, 2, SYMBOL_TYPE::STRING)) {
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->render(RENDERER_UNIT::STRING, (*it)->text);
+			renderer->renderTexture((*it)->text);
 		});
 		return;
 	}
 
-	//check next token is blank
-	++nextToken;
-	if (nextToken == mTokenStream.cend() || (*nextToken)->type != SYMBOL_TYPE::BLANK) {
-		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-		{
-			renderer->render(RENDERER_UNIT::STRING, (*it)->text);
-		});
-		return;
-	}
-
-	//check next token is string
-	++nextToken;
-	if (nextToken == mTokenStream.cend() || (*nextToken)->type != SYMBOL_TYPE::STRING) {
-		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-		{
-			renderer->render(RENDERER_UNIT::STRING, (*it)->text);
-		});
-		return;
-	}
-
+	TokenStream::const_iterator nextToken = it + 2;
 	//render order list
 	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 	{
-		renderer->render(RENDERER_UNIT::ORDER_LIST, (*it)->text, (*nextToken)->text);
+		renderer->renderOrderList((*it)->text, (*nextToken)->text);
 	});
 	it = nextToken;
 }
@@ -203,13 +178,23 @@ inline bool GrammarParser::isLineFirst(TokenStream::const_iterator &it)
 		return true;
 	}
 
-	return (*(it - 1))->type == SYMBOL_TYPE::NEW_LINE;
+	return checkToken(it, -1, SYMBOL_TYPE::NEW_LINE);
 }
 
 void GrammarParser::handleNewLine()
 {
 	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 	{
-		renderer->render(RENDERER_UNIT::NEW_LINE);
+		renderer->renderNewLine();
 	});
+}
+
+bool GrammarParser::checkToken(TokenStream::const_iterator &it, int offset, SYMBOL_TYPE type)
+{
+	TokenStream::const_iterator target = it + offset;
+	if (target < mTokenStream.cbegin() || target >= mTokenStream.cend()) {
+		return false;
+	}
+
+	return (*target)->type == type;
 }
