@@ -70,23 +70,9 @@ void GrammarParser::parse()
 
 void GrammarParser::handleHash(TokenStream::const_iterator &it)
 {
-
-	TokenStream::const_iterator nextIt = it + 1;
-	if (nextIt == mTokenStream.cend()) {
-		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-		{
-			renderer->renderTexture((*it)->text);
-		});
-		return;
-	}
-
-	bool prevTokenIsEnd = isLineFirst(it);
-	bool nextTokenIsBlank = (*nextIt)->type == SYMBOL_TYPE::BLANK;
-	++nextIt;
-	bool nextNextTokenIsString = nextIt != mTokenStream.cend() && (*nextIt)->type == SYMBOL_TYPE::STRING;
-
-	//当是新的一行 并且中间至 #号后面跟了一个空格符 且后面还有字符 那么就认为是一个标题
-	if (prevTokenIsEnd && nextTokenIsBlank && nextNextTokenIsString) {
+	if (isLineFirst(it) &&
+		checkToken(it, 1, SYMBOL_TYPE::BLANK) &&
+		checkToken(it, 2, SYMBOL_TYPE::STRING)) {
 
 		RENDERER_UNIT unit = RENDERER_UNIT::TITLE_5;
 		switch ((*it)->text.size()) {
@@ -102,18 +88,15 @@ void GrammarParser::handleHash(TokenStream::const_iterator &it)
 		}
 
 		//将读取指针后移
-		it = nextIt;
+		it += 2;
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->renderTitle(unit, (*nextIt)->text);
+			renderer->renderTitle(unit, (*it)->text);
 		});
 		return;
 	}
 
-	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-	{
-		renderer->renderTexture((*it)->text);
-	});
+	handleString(it);
 }
 
 void GrammarParser::handleStar(TokenStream::const_iterator &it)
@@ -122,7 +105,6 @@ void GrammarParser::handleStar(TokenStream::const_iterator &it)
 		handleString(it);
 		return;
 	}
-
 
 	//如果下一个单词也是star 那么就当错误处理，吃掉状态
 	if (checkToken(it, 1, SYMBOL_TYPE::STAR)) {
