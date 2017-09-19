@@ -25,7 +25,6 @@ void GrammarParser::unregisterRenderer(MiddlewareRenderer *renderer)
 }
 void GrammarParser::parse()
 {
-
 	std::for_each(mRenderers.cbegin(), mRenderers.cend(), [](MiddlewareRenderer *renderer)
 	{
 		renderer->begin();
