@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/MarkDownParser.dir/lexica/LexicalParser.cpp.o"
   "CMakeFiles/MarkDownParser.dir/grammer/GrammarParser.cpp.o"
   "CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o"
+  "CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o"
   "MarkDownParser.pdb"
   "MarkDownParser"
 )

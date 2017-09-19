@@ -24,6 +24,13 @@ CMakeFiles/MarkDownParser.dir/main.cpp.o
  /Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h
  /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
  /Users/chan/ClionProjects/MarkDownParser/token/Token.h
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o
+ /Users/chan/ClionProjects/MarkDownParser/render/AndroidRenderer.cpp
+ /Users/chan/ClionProjects/MarkDownParser/render/AndroidRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h
+ /Users/chan/ClionProjects/MarkDownParser/render/RendererUnit.h
+ /Users/chan/ClionProjects/MarkDownParser/symbol/Symbol.h
+ /Users/chan/ClionProjects/MarkDownParser/token/Token.h
 CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o
  /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.cpp
  /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h

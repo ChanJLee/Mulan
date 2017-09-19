@@ -45,6 +45,18 @@ void GrammarParser::parse()
 		else if (token->type == SYMBOL_TYPE::NEW_LINE) {
 			handleNewLine();
 		}
+		else if (token->type == SYMBOL_TYPE::REFERENCE) {
+			handleReference(iterator);
+		}
+		else if (token->type == SYMBOL_TYPE::DASHES) {
+			handleDashes(iterator);
+		}
+		else if (token->type == SYMBOL_TYPE::EXCLAMATION_MARK) {
+			handleExclamationMark(iterator);
+		}
+		else if (token->type == SYMBOL_TYPE::LEFT_SQUARE_BRACKETS) {
+			handleLeftSquareBrackets(iterator);
+		}
 		else {
 			handleString(iterator);
 		}
@@ -107,10 +119,7 @@ void GrammarParser::handleHash(TokenStream::const_iterator &it)
 void GrammarParser::handleStar(TokenStream::const_iterator &it)
 {
 	if (!checkToken(it, 1, SYMBOL_TYPE::STRING) && !checkToken(it, 1, SYMBOL_TYPE::STAR)) {
-		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-		{
-			renderer->renderTexture((*it)->text);
-		});
+		handleString(it);
 		return;
 	}
 
@@ -138,10 +147,7 @@ void GrammarParser::handleStar(TokenStream::const_iterator &it)
 		return;
 	}
 
-	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-	{
-		renderer->renderTexture((*it)->text);
-	});
+	handleString(it);
 }
 
 void GrammarParser::handleString(TokenStream::const_iterator &it)
@@ -150,26 +156,30 @@ void GrammarParser::handleString(TokenStream::const_iterator &it)
 	{
 		renderer->renderTexture((*it)->text);
 	});
+
+	if (checkToken(it, 1, SYMBOL_TYPE::NEW_LINE)) {
+		++it;
+	}
 }
 
 void GrammarParser::handleNumber(TokenStream::const_iterator &it)
 {
-	bool isAtNewLine = isLineFirst(it);
-	if (!isAtNewLine || !checkToken(it, 1, SYMBOL_TYPE::DOT) || !checkToken(it, 2, SYMBOL_TYPE::STRING)) {
+	if (isLineFirst(it) &&
+		checkToken(it, 1, SYMBOL_TYPE::DOT) &&
+		checkToken(it, 2, SYMBOL_TYPE::BLANK) &&
+		checkToken(it, 3, SYMBOL_TYPE::STRING)) {
+
+		TokenStream::const_iterator nextToken = it + 3;
+		//render order list
 		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
 		{
-			renderer->renderTexture((*it)->text);
+			renderer->renderOrderList((*it)->text, (*nextToken)->text);
 		});
+		it = nextToken;
 		return;
 	}
 
-	TokenStream::const_iterator nextToken = it + 2;
-	//render order list
-	std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
-	{
-		renderer->renderOrderList((*it)->text, (*nextToken)->text);
-	});
-	it = nextToken;
+	handleString(it);
 }
 
 inline bool GrammarParser::isLineFirst(TokenStream::const_iterator &it)
@@ -197,4 +207,75 @@ bool GrammarParser::checkToken(TokenStream::const_iterator &it, int offset, SYMB
 	}
 
 	return (*target)->type == type;
+}
+
+void GrammarParser::handleReference(TokenStream::const_iterator &it)
+{
+	if (isLineFirst(it) && checkToken(it, 1, SYMBOL_TYPE::BLANK) && checkToken(it, 2, SYMBOL_TYPE::STRING)) {
+		it += 2;
+		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
+		{
+			renderer->renderReference((*it)->text);
+		});
+		return;
+	}
+
+	handleString(it);
+}
+
+void GrammarParser::handleDashes(TokenStream::const_iterator &it)
+{
+	if (isLineFirst(it) && checkToken(it, 1, SYMBOL_TYPE::BLANK) && checkToken(it, 2, SYMBOL_TYPE::STRING)) {
+		it += 2;
+		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
+		{
+			renderer->renderUnorderedList((*it)->text);
+		});
+		return;
+	}
+
+	handleString(it);
+}
+
+void GrammarParser::handleExclamationMark(TokenStream::const_iterator &it)
+{
+	if (isLineFirst(it) &&
+		checkToken(it, 1, SYMBOL_TYPE::LEFT_SQUARE_BRACKETS) &&
+		checkToken(it, 2, SYMBOL_TYPE::STRING) &&
+		checkToken(it, 3, SYMBOL_TYPE::RIGHT_SQUARE_BRACKETS) &&
+		checkToken(it, 4, SYMBOL_TYPE::LEFT_PARENTHESES) &&
+		checkToken(it, 5, SYMBOL_TYPE::STRING) &&
+		checkToken(it, 6, SYMBOL_TYPE::RIGHT_PARENTHESES)) {
+		TokenStream::const_iterator label = it + 2;
+		TokenStream::const_iterator url = it + 5;
+		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
+		{
+			renderer->renderImage((*label)->text, (*url)->text);
+		});
+		it = url;
+		return;
+	}
+
+	handleString(it);
+}
+
+void GrammarParser::handleLeftSquareBrackets(TokenStream::const_iterator &it)
+{
+	if (isLineFirst(it) &&
+		checkToken(it, 1, SYMBOL_TYPE::STRING) &&
+		checkToken(it, 2, SYMBOL_TYPE::RIGHT_SQUARE_BRACKETS) &&
+		checkToken(it, 3, SYMBOL_TYPE::LEFT_PARENTHESES) &&
+		checkToken(it, 4, SYMBOL_TYPE::STRING) &&
+		checkToken(it, 5, SYMBOL_TYPE::RIGHT_PARENTHESES)) {
+		TokenStream::const_iterator label = it + 1;
+		TokenStream::const_iterator url = it + 4;
+		std::for_each(mRenderers.begin(), mRenderers.end(), [&](MiddlewareRenderer *renderer)
+		{
+			renderer->renderLink((*label)->text, (*url)->text);
+		});
+		it = url;
+		return;
+	}
+
+	handleString(it);
 }

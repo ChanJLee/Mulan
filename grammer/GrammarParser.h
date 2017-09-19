@@ -23,7 +23,6 @@ public:
 	void unregisterRenderer(MiddlewareRenderer *renderer);
 
 	void parse();
-
 private:
 	void handleHash(TokenStream::const_iterator &it);
 	void handleStar(TokenStream::const_iterator &it);
@@ -31,7 +30,11 @@ private:
 	void handleNumber(TokenStream::const_iterator &it);
 	bool isLineFirst(TokenStream::const_iterator &it);
 	void handleNewLine();
-	bool checkToken(TokenStream::const_iterator& it, int offset, SYMBOL_TYPE type);
+	bool checkToken(TokenStream::const_iterator &it, int offset, SYMBOL_TYPE type);
+	void handleReference(TokenStream::const_iterator &it);
+	void handleDashes(TokenStream::const_iterator &iter);
+	void handleExclamationMark(TokenStream::const_iterator &iter);
+	void handleLeftSquareBrackets(TokenStream::const_iterator &iter);
 };
 
 

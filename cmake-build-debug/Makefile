@@ -204,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+render/AndroidRenderer.o: render/AndroidRenderer.cpp.o
+
+.PHONY : render/AndroidRenderer.o
+
+# target to build an object file
+render/AndroidRenderer.cpp.o:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o
+.PHONY : render/AndroidRenderer.cpp.o
+
+render/AndroidRenderer.i: render/AndroidRenderer.cpp.i
+
+.PHONY : render/AndroidRenderer.i
+
+# target to preprocess a source file
+render/AndroidRenderer.cpp.i:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.i
+.PHONY : render/AndroidRenderer.cpp.i
+
+render/AndroidRenderer.s: render/AndroidRenderer.cpp.s
+
+.PHONY : render/AndroidRenderer.s
+
+# target to generate assembly for a file
+render/AndroidRenderer.cpp.s:
+	$(MAKE) -f CMakeFiles/MarkDownParser.dir/build.make CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.s
+.PHONY : render/AndroidRenderer.cpp.s
+
 render/HtmlRenderer.o: render/HtmlRenderer.cpp.o
 
 .PHONY : render/HtmlRenderer.o
@@ -249,6 +276,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... render/AndroidRenderer.o"
+	@echo "... render/AndroidRenderer.i"
+	@echo "... render/AndroidRenderer.s"
 	@echo "... render/HtmlRenderer.o"
 	@echo "... render/HtmlRenderer.i"
 	@echo "... render/HtmlRenderer.s"

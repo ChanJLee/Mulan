@@ -24,6 +24,13 @@ CMakeFiles/MarkDownParser.dir/main.cpp.o: ../render/RendererUnit.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../symbol/Symbol.h
 CMakeFiles/MarkDownParser.dir/main.cpp.o: ../token/Token.h
 
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../render/AndroidRenderer.cpp
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../render/AndroidRenderer.h
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../render/MiddlewareRenderer.h
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../render/RendererUnit.h
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../symbol/Symbol.h
+CMakeFiles/MarkDownParser.dir/render/AndroidRenderer.cpp.o: ../token/Token.h
+
 CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/HtmlRenderer.cpp
 CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/HtmlRenderer.h
 CMakeFiles/MarkDownParser.dir/render/HtmlRenderer.cpp.o: ../render/MiddlewareRenderer.h

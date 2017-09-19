@@ -22,7 +22,7 @@
 #define IS_END(ch) ((ch) == '\r' || (ch) == '\n')
 
 #define IS_VALID_CHAR(ch) ((ch) != ']' && (ch) != ')' && \
-		!IS_END(ch) \
+		!IS_END(ch) && (ch) != '*' \
 	)
 
 #define IS_NUMBER(ch) ((ch) >= '0' && (ch) <= '9')

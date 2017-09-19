@@ -48,8 +48,16 @@ grammer/GrammarParser.h
 render/HtmlRenderer.h
 /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h
 
+/Users/chan/ClionProjects/MarkDownParser/render/AndroidRenderer.cpp
+AndroidRenderer.h
+/Users/chan/ClionProjects/MarkDownParser/render/AndroidRenderer.h
+
+/Users/chan/ClionProjects/MarkDownParser/render/AndroidRenderer.h
+MiddlewareRenderer.h
+/Users/chan/ClionProjects/MarkDownParser/render/MiddlewareRenderer.h
+
 /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.cpp
-iostream
+fstream
 -
 HtmlRenderer.h
 /Users/chan/ClionProjects/MarkDownParser/render/HtmlRenderer.h

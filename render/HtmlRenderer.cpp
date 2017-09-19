@@ -1,8 +1,10 @@
 //
 // Created by chan on 2017/9/13.
 //
+#ifdef DEBUG
+#include <fstream>
+#endif
 
-#include <iostream>
 #include "HtmlRenderer.h"
 
 void HtmlRenderer::begin()
@@ -13,7 +15,13 @@ void HtmlRenderer::begin()
 void HtmlRenderer::end()
 {
 	mStringBuilder << "</body></html>";
-	std::cout << mStringBuilder.str();
+
+#ifdef DEBUG
+	std::ofstream ofstream;
+	ofstream.open("/Users/chan/Downloads/shanbay-beaver-doc/index.html");
+	ofstream << mStringBuilder.str();
+	ofstream.close();
+#endif
 }
 
 void HtmlRenderer::renderTitle(RENDERER_UNIT unit, const Text &content)
@@ -46,7 +54,7 @@ void HtmlRenderer::renderTypeface(RENDERER_UNIT unit, const Text &content)
 }
 void HtmlRenderer::renderOrderList(const Text &num, const Text &content)
 {
-	mStringBuilder << "<b>" << num << ". " << content;
+	mStringBuilder << "<p><b>" << num << ". " << "</b>" << content << "</p>";
 }
 
 void HtmlRenderer::renderNewLine()
@@ -69,4 +77,9 @@ void HtmlRenderer::renderLink(const Text &label, const Text &url)
 void HtmlRenderer::renderReference(const Text &content)
 {
 	mStringBuilder << "<span style=\"background-color:#ABB5BB;color:#ffffff;\">" << content << "</span>";
+}
+
+void HtmlRenderer::renderUnorderedList(const Text &content)
+{
+	mStringBuilder << "<p><b>·</b>" << content << "</p>";
 }
